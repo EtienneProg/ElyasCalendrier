@@ -65,7 +65,8 @@ async function initCalendar() {
     // Jours du mois courant
     for (let i = 1; i <= lastDate; i++) {
         let event = false;
-        let gardeInitial = "";
+        let pers = null;
+        let persJ = null
         for (const eventObj of eventsArr) {
             if (
                 eventObj.day === i &&
@@ -73,8 +74,10 @@ async function initCalendar() {
                 eventObj.year === year
             ) {
                 event = true;
-                const personne = await getPersonne(eventObj.personne);
-                gardeInitial = personne.initial;
+                pers = await getPersonne(eventObj.personne);
+                if(eventObj.gardeJours > 0 ){
+                    persJ = await getPersonne(eventObj.gardeJours)
+                }
                 break;
             }
         }
@@ -87,13 +90,13 @@ async function initCalendar() {
             getActiveDay(i);
             await updateEvents(i);
             if (event) {
-                days += `<div class="day today active event" data-initial="${gardeInitial}">${i}</div>`;
+                days += `<div class="day today active event" data-initial="${persJ ? persJ.initial: ''}${pers.initial}">${i}</div>`;
             } else {
                 days += `<div class="day today active">${i}</div>`;
             }
         } else {
             if (event) {
-                days += `<div class="day event" data-initial="${gardeInitial}">${i}</div>`;
+                days += `<div class="day event" data-initial="${persJ ? persJ.initial: ''}${pers.initial}">${i}</div>`;
             } else {
                 days += `<div class="day">${i}</div>`;
             }
@@ -233,22 +236,40 @@ async function updateEvents(date) {
     let garde = "";
 
     for (const event of eventsArr) {
-        const pers = await getPersonne(event.personne);
         if (
             date === event.day &&
             month + 1 === event.month &&
             year === event.year
         ) {
+            const pers = await getPersonne(event.personne);
+            let persJ = null
+
+            if(event.gardeJours > 0 ){
+                persJ = await getPersonne(event.gardeJours)
+            }
+
             garde = `<div class="event">
             <div class="title">
               <i class="fas fa-circle"></i>
               <h3 class="event-title">${pers ? pers.nom : "Nom inconnu"}</h3>
-            </div>
-            <div class="event-time">
-              <span class="event-time">${event.commentaire}</span>
-            </div>
-            </div>`;
-            break; // On peut arrêter la boucle si un événement est trouvé
+            </div>${event.commentaire !== "" ? `<div class="event-time">
+                <span class="event-time">${event.commentaire}</span>
+              </div>
+              ` : ""}</div>`;
+
+            if(!!persJ){
+                garde += `<div class="event">
+                <div class="title">
+                  <i class="fas fa-circle"></i>
+                  <h3 class="event-title">${persJ ? persJ.nom : "Nom inconnu"}</h3>
+                </div>
+                <div class="event-time">
+                  <span class="event-time">Garde journée</span>
+                </div>
+                </div>`;
+            }
+
+            break;
         }
     }
 
