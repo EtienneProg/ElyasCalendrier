@@ -2,36 +2,43 @@
   {
     "id": 1,
     "nom": "Papa",
-    "initial": "P"
+    "initial": "P",
+    "color":"cyan"
   },
   {
     "id": 2,
     "nom": "Maman",
-    "initial": "M"
+    "initial": "M",
+    "color":"grey"
   },
   {
     "id": 3,
     "nom": "Papito & Mamita",
-    "initial": "C"
+    "initial": "C",
+    "color":"yellow"
   },
   {
     "id": 4,
     "nom": "Vaness",
-    "initial": "V"
+    "initial": "V",
+    "color":"blue"
   },
   {
     "id": 5,
     "nom": "Fred",
-    "initial": "F"
+    "initial": "F",
+    "color":"purple"
   },
   {
     "id": 6,
     "nom": "Papy & Mamy",
-    "initial": "B"
+    "initial": "B",
+    "color":"red"
   },
   {
     "id": 7,
     "nom": "Amelie",
-    "initial": "A"
+    "initial": "A",
+    "color":"orange"
   }
 ]
