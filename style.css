@@ -174,66 +174,188 @@ body {
 .calendar .days .event {
     position: relative;
 }
-.calendar .days .event .garde-initial{
+
+
+.calendar .days .event::after {
+    text-align: center;
+    content: attr(data-initial);
+    font-size: 15px;
     position: absolute;
-    font-size: small;
-    top: 4px;
-    right:-4px;
-    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 10%;
+    left: 50%;
+    width: 75%;
+    height: 16px;
     border-radius: 30px;
     transform: translateX(-50%);
     background-color: var(--primary-clr);
-    color: #fff;
+    color:#fff;
+    text-shadow: 1px 1px 1px black
 }
-.calendar .days .day:hover.event .garde-initial {
-    background-color: #fff;
-    color: var(--primary-clr);
-}
-.calendar .days .active.event .garde-initial {
-    background-color: #fff;
-    color: var(--primary-clr);
-}
-.calendar .days .event[data-initial]::after {
-    content: "";
-    position: absolute;
-    font-size: small;
-    top: 4px;
-    right:-4px;
-    padding: 4px;
-    border-radius: 30px;
-    transform: translateX(-50%);
-    color: #fff;
-}
+
 .calendar .days .event[data-initial="P"]::after {
-    content:"P";
     background-color: cyan;
-    color: #000;
 }
 .calendar .days .event[data-initial="M"]::after {
-    content:"M";
     background-color: gray;
 }
 .calendar .days .event[data-initial="C"]::after {
-    content:"C";
     background-color: yellow;
-    color: #000;
 }
 .calendar .days .event[data-initial="V"]::after {
-    content:"V";
     background-color: blue;
 }
 .calendar .days .event[data-initial="F"]::after {
-    content:"F";
     background-color: purple;
 }
 .calendar .days .event[data-initial="B"]::after {
-    content:"B";
     background-color: red;
 }
 .calendar .days .event[data-initial="A"]::after {
-    content:"A";
     background-color: orange;
 }
+
+.calendar .days .event[data-initial="PM"]::after {
+    background: linear-gradient(90deg, cyan 30%, gray 70%);
+}
+.calendar .days .event[data-initial="PC"]::after {
+    background: linear-gradient(90deg, cyan 30%, yellow 70%);
+}
+.calendar .days .event[data-initial="PV"]::after {
+    background: linear-gradient(90deg, cyan 30%, blue 70%);
+}
+.calendar .days .event[data-initial="PF"]::after {
+    background: linear-gradient(90deg, cyan 30%, purple 70%);
+}
+.calendar .days .event[data-initial="PB"]::after {
+    background: linear-gradient(90deg, cyan 30%, red 70%);
+}
+.calendar .days .event[data-initial="PA"]::after {
+    background: linear-gradient(90deg, cyan 30%, orange 70%);
+}
+
+.calendar .days .event[data-initial="MP"]::after {
+    background: linear-gradient(90deg, gray 30%, cyan 70%);
+}
+.calendar .days .event[data-initial="MC"]::after {
+    background: linear-gradient(90deg, gray 30%, yellow 70%);
+}
+.calendar .days .event[data-initial="MV"]::after {
+    background: linear-gradient(90deg, gray 30%, blue 70%);
+}
+.calendar .days .event[data-initial="MF"]::after {
+    background: linear-gradient(90deg, gray 30%, purple 70%);
+}
+.calendar .days .event[data-initial="MB"]::after {
+    background: linear-gradient(90deg, gray 30%, red 70%);
+}
+.calendar .days .event[data-initial="MA"]::after {
+    background: linear-gradient(90deg, gray 30%, orange 70%);
+}
+
+.calendar .days .event[data-initial="CP"]::after {
+    background: linear-gradient(90deg, yellow 30%, cyan 70%);
+}
+.calendar .days .event[data-initial="CM"]::after {
+    background: linear-gradient(90deg, yellow 30%, gray 70%);
+}
+.calendar .days .event[data-initial="CV"]::after {
+    background: linear-gradient(90deg, yellow 30%, blue 70%);
+}
+.calendar .days .event[data-initial="CF"]::after {
+    background: linear-gradient(90deg, yellow 30%, purple 70%);
+}
+.calendar .days .event[data-initial="CB"]::after {
+    background: linear-gradient(90deg, yellow 30%, red 70%);
+}
+.calendar .days .event[data-initial="CA"]::after {
+    background: linear-gradient(90deg, yellow 30%, orange 70%);
+}
+
+.calendar .days .event[data-initial="VP"]::after {
+    background: linear-gradient(90deg, blue 30%, cyan 70%);
+}
+.calendar .days .event[data-initial="VM"]::after {
+    background: linear-gradient(90deg, blue 30%, gray 70%);
+}
+.calendar .days .event[data-initial="VC"]::after {
+    background: linear-gradient(90deg, blue 30%, yellow 70%);
+}
+.calendar .days .event[data-initial="VF"]::after {
+    background: linear-gradient(90deg, blue 30%, purple 70%);
+}
+.calendar .days .event[data-initial="VB"]::after {
+    background: linear-gradient(90deg, blue 30%, red 70%);
+}
+.calendar .days .event[data-initial="VA"]::after {
+    background: linear-gradient(90deg, blue 30%, orange 70%);
+}
+
+.calendar .days .event[data-initial="FP"]::after {
+    background: linear-gradient(90deg, purple 30%, cyan 70%);
+}
+.calendar .days .event[data-initial="FM"]::after {
+    background: linear-gradient(90deg, purple 30%, gray 70%);
+}
+.calendar .days .event[data-initial="FC"]::after {
+    background: linear-gradient(90deg, purple 30%, yellow 70%);
+}
+.calendar .days .event[data-initial="FV"]::after {
+    background: linear-gradient(90deg, purple 30%, blue 70%);
+}
+.calendar .days .event[data-initial="FB"]::after {
+    background: linear-gradient(90deg, purple 30%, red 70%);
+}
+.calendar .days .event[data-initial="FA"]::after {
+    background: linear-gradient(90deg, purple 30%, orange 70%);
+}
+
+.calendar .days .event[data-initial="BP"]::after {
+    background: linear-gradient(90deg, red 30%, cyan 70%);
+}
+.calendar .days .event[data-initial="BM"]::after {
+    background: linear-gradient(90deg, red 30%, gray 70%);
+}
+.calendar .days .event[data-initial="BC"]::after {
+    background: linear-gradient(90deg, red 30%, yellow 70%);
+}
+.calendar .days .event[data-initial="BV"]::after {
+    background: linear-gradient(90deg, red 30%, blue 70%);
+}
+.calendar .days .event[data-initial="BF"]::after {
+    background: linear-gradient(90deg, red 30%, purple 70%);
+}
+.calendar .days .event[data-initial="BB"]::after {
+    background: linear-gradient(90deg, red 30%, red 70%);
+}
+.calendar .days .event[data-initial="BA"]::after {
+    background: linear-gradient(90deg, red 30%, orange 70%);
+}
+
+.calendar .days .event[data-initial="AP"]::after {
+    background: linear-gradient(90deg, orange 30%, cyan 70%);
+}
+.calendar .days .event[data-initial="AM"]::after {
+    background: linear-gradient(90deg, orange 30%, gray 70%);
+}
+.calendar .days .event[data-initial="AC"]::after {
+    background: linear-gradient(90deg, orange 30%, yellow 70%);
+}
+.calendar .days .event[data-initial="AV"]::after {
+    background: linear-gradient(90deg, orange 30%, blue 70%);
+}
+.calendar .days .event[data-initial="AF"]::after {
+    background: linear-gradient(90deg, orange 30%, purple 70%);
+}
+.calendar .days .event[data-initial="AB"]::after {
+    background: linear-gradient(90deg, orange 30%, red 70%);
+}
+
+
+
+
 .calendar .goto-today {
     width: 100%;
     height: 50px;
@@ -369,7 +491,7 @@ body {
 }
 /* add tick in event after */
 .events .event::after {
-    content: "✓";
+    /* content: "✓"; */
     position: absolute;
     top: 50%;
     right: 0;
@@ -559,6 +681,9 @@ body {
     .right .today-date {
         margin-top: 0;
     }
+    .calendar .days .event::after {
+        font-size: 12px;
+    }
 }
 @media screen and (max-width: 500px) {
     .calendar .month {
@@ -579,8 +704,20 @@ body {
         padding: 20px;
     }
     .calendar .days .day.event{
-        justify-content: left;
-        padding-left: 6px;
+        padding-bottom: 16px;
+    }
+    .calendar .days .event::after {
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 375px) {
+    .calendar .days .day {
+        height: 40px;
+        font-size: 0.6rem;
+    }
+    .calendar .days .day.active,
+    .calendar .days .day.today {
+        font-size: 0.7rem;
     }
 }
 
