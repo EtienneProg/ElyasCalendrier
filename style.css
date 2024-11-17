@@ -175,6 +175,10 @@ body {
     position: relative;
 }
 
+.calendar .days .need {
+    background-color: #b3b3b3;
+}
+
 
 .calendar .days .event::after {
     text-align: center;
